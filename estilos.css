@@ -1,0 +1,13 @@
+.resumen {
+    text-align: center;
+}
+
+.dolar{
+    text-align: end;
+}
+
+.error{
+    text-align: center;
+    color: red;
+    font-size: 32px;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2da-PreEntrega</title>
+    <link rel="stylesheet" href="./estilos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="container-fluid">
+        <div class="row">
+                <div class="col-md-6">
+                    <h1 class="m-5 ">Rodados Seguros</h1>
+                </div>
+                <div class="col-md-6">
+                    <ul class="nav justify-content-end justify-content-around fs-4 mb-5 mt-5">
+                        <li class="nav-item">
+                          <a class="nav-link text-black" aria-current="page" href="#">Quienes Somos</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-black" href="#">Contactanos</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-black" href="#">Cotiza tu seguro</a>
+                        </li>
+                      </ul>
+                </div>
+        </div>
+    </nav>
+            <div class="container text-end">
+            <div id="pesos-cointainer"></div>
+            <div class="" id="pesos-cantidad" ></div> 
+            </div>
+    <header class="container bg-primary text-center p-4">
+  
+        <h2>Cotizador de Seguros</h2>
+        
+    </header>
+        <div id="error" class="error"></div> 
+        <div class="container border">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="  text-end m-5">Marca:</h4>
+                </div>
+                <div class="col-md-4">
+                    
+                    <form id="form">
+                       
+                    <select class="form-select mt-5" name="marca" id="marca" aria-label="Default select example">
+                        <option value="">Seleccione su tipo de auto</option>
+                        <option value="Europeo">Europeo</option>
+                        <option value="Americano">Americano</option>
+                        <option value="Japones">Japones</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="  text-end m-5">Año:</h4>
+                </div>
+                <div class="col-md-4">  
+                    <select class="form-select mt-5" name="year" id="year" aria-label="Default select example">
+                        <option value="">Seleccione una opcion</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="  text-center m-5 border p-3">Plan solo a terceros</h4>
+                        <ul class="m-5">
+                            <li>Responsabilidad Civil</li>
+                            <li>Reposición de 0km</li>
+                            <li>Daños, incendio y robo total</li>
+                            <li>Robo e incendio parcial</li>
+                            <li>Daño parcial por robo y recupero del auto</li>
+                            <li>Cerraduras</li>
+                            <li>Cristales laterales</li>
+                        </ul>
+                        <div class="form-check m-5">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="basico1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Basico
+                            </label>
+                        </div>
+                </div>
+                <div class="col-md-6  ">  
+                    <h4 class="  text-center m-5 border p-3">Plan contra todo riesgo</h4>
+                    <ul class="m-5">
+                        <li>Responsabilidad Civil</li>
+                        <li>Reposición de 0km</li>
+                        <li>Daños, incendio y robo total</li>
+                        <li>Robo e incendio parcial</li>
+                        <li>Daño parcial por robo y recupero del auto</li>
+                        <li>Cerraduras</li>
+                        <li>Cristales laterales</li>
+                        <li>Luneta y parabrisas</li>
+                        <li>Daños por granizo</li>
+                        <li>Daños parciales por accidente</li>
+                    </ul>
+                    <div class="form-check m-5">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="completo2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Completo
+                        </label>
+                    </div>
+                </div>
+            </div>
+            </form>
+            <div class="d-grid gap-2 pt-2 m-5">
+                <!-- INCIO DE LA FUNCION COTIZACION -->
+               <input type="submit" onclick="cotizarSeguro()" class="btn btn-info text-center"  value="VALOR"/> 
+            </div>
+            
+            <div id = "resumen" class="resumen" style="display: none">
+            </div>
+            <div id = "resultado" style="display: none" class="text-center bg-primary mt-2">
+            </div>
+        </div>
+    <script src="./main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
